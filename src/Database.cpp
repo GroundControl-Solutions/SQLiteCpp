@@ -69,6 +69,17 @@ Database::Database(const std::string& aFilename,
     }
 }
 
+Database::Database(sqlite3 * openedSQLite,
+				   const int aBusyTimeoutMs) :
+mpSQLite(openedSQLite),
+mFilename("")
+{
+	if (mpSQLite == NULL) throw SQLite::Exception("NULL database");
+	{
+		setBusyTimeout(aBusyTimeoutMs);
+	}
+}
+
 // Close the SQLite database connection.
 Database::~Database() noexcept // nothrow
 {

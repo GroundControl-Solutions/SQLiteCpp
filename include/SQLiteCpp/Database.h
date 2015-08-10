@@ -87,6 +87,12 @@ public:
              const int          aBusyTimeoutMs  = 0,
              const std::string& aVfs            = "");
 
+	/**
+	 * @brief Wrap an existing opened SQLite database reference.
+	 */
+	Database(sqlite3 *	openedSQLite,
+			 const int	aBusyTimeoutMs = 0);
+
     /**
      * @brief Close the SQLite database connection.
      *
