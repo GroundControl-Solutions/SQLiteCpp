@@ -378,7 +378,7 @@ private:
         }
     }
 
-private:
+public:
     sqlite3*    mpSQLite;   //!< Pointer to SQLite Database Connection Handle
     std::string mFilename;  //!< UTF-8 filename used to open the database
 };
