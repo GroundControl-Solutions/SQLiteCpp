@@ -173,6 +173,8 @@ source_group(scripts FILES ${SQLITECPP_SCRIPT})
 # add sources of the wrapper as a "SQLiteCpp" static library
 add_library(SQLiteCpp ${SQLITECPP_SRC} ${SQLITECPP_INC} ${SQLITECPP_DOC} ${SQLITECPP_SCRIPT})
 
+set_target_properties(SQLiteCpp PROPERTIES DEFINE_SYMBOL SQLITECPP_BUILDING_SQLITECPP)
+
 # Options relative to SQLite and SQLiteC++ functions
 
 option(SQLITE_ENABLE_COLUMN_METADATA "Enable Column::getColumnOriginName(). Require support from sqlite3 library." ON)

@@ -11,6 +11,7 @@
 #pragma once
 
 #include <SQLiteCpp/Exception.h>
+#include <SQLiteCpp/Export.h>
 #include <SQLiteCpp/Utils.h> // SQLITECPP_PURE_FUNC
 
 #include <string>
@@ -30,7 +31,7 @@ namespace SQLite
 class Database;
 class Column;
 
-extern const int OK; ///< SQLITE_OK
+SQLITECPP_EXPORT_CPP const int OK; ///< SQLITE_OK
 
 /**
  * @brief RAII encapsulation of a prepared SQLite Statement.
@@ -49,7 +50,7 @@ extern const int OK; ///< SQLITE_OK
  *    because of the way it shares the underling SQLite precompiled statement
  *    in a custom shared pointer (See the inner class "Statement::Ptr").
  */
-class Statement
+class SQLITECPP_LINKAGE Statement
 {
     friend class Column; // For access to Statement::Ptr inner class
 
@@ -707,7 +708,7 @@ private:
      * This is a internal class, not part of the API (hence full documentation is in the cpp).
      */
     // TODO Convert this whole custom pointer to a C++11 std::shared_ptr with a custom deleter
-    class Ptr
+    class SQLITECPP_LINKAGE Ptr
     {
     public:
         // Prepare the statement and initialize its reference counter

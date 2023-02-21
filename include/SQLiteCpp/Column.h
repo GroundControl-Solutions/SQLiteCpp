@@ -12,6 +12,7 @@
 
 #include <SQLiteCpp/Statement.h>
 #include <SQLiteCpp/Exception.h>
+#include <SQLiteCpp/Export.h>
 
 #include <string>
 #include <climits> // For INT_MAX
@@ -20,11 +21,11 @@
 namespace SQLite
 {
 
-extern const int INTEGER;   ///< SQLITE_INTEGER
-extern const int FLOAT;     ///< SQLITE_FLOAT
-extern const int TEXT;      ///< SQLITE_TEXT
-extern const int BLOB;      ///< SQLITE_BLOB
-extern const int Null;      ///< SQLITE_NULL
+SQLITECPP_EXPORT_CPP const int INTEGER;   ///< SQLITE_INTEGER
+SQLITECPP_EXPORT_CPP const int FLOAT;     ///< SQLITE_FLOAT
+SQLITECPP_EXPORT_CPP const int TEXT;      ///< SQLITE_TEXT
+SQLITECPP_EXPORT_CPP const int BLOB;      ///< SQLITE_BLOB
+SQLITECPP_EXPORT_CPP const int Null;      ///< SQLITE_NULL
 
 
 /**
@@ -43,7 +44,7 @@ extern const int Null;      ///< SQLITE_NULL
  *    because of the way it shares the underling SQLite precompiled statement
  *    in a custom shared pointer (See the inner class "Statement::Ptr").
  */
-class Column
+class SQLITECPP_LINKAGE Column
 {
 public:
     /**

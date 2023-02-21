@@ -13,6 +13,8 @@
 #include <stdexcept>
 #include <string>
 
+#include <SQLiteCpp/Export.h>
+
 // Forward declaration to avoid inclusion of <sqlite3.h> in a header
 struct sqlite3;
 
@@ -23,7 +25,7 @@ namespace SQLite
 /**
  * @brief Encapsulation of the error message from SQLite3, based on std::runtime_error.
  */
-class Exception : public std::runtime_error
+class SQLITECPP_LINKAGE Exception : public std::runtime_error
 {
 public:
     /**

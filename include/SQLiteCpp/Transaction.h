@@ -11,6 +11,7 @@
 #pragma once
 
 #include <SQLiteCpp/Exception.h>
+#include <SQLiteCpp/Export.h>
 
 
 namespace SQLite
@@ -40,7 +41,7 @@ class Database;
  *    because of the way it shares the underling SQLite precompiled statement
  *    in a custom shared pointer (See the inner class "Statement::Ptr").
  */
-class Transaction
+class SQLITECPP_LINKAGE Transaction
 {
 public:
     /**

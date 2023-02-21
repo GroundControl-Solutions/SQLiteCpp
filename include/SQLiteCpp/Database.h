@@ -11,6 +11,7 @@
 #pragma once
 
 #include <SQLiteCpp/Column.h>
+#include <SQLiteCpp/Export.h>
 #include <memory>
 #include <string.h>
 
@@ -32,22 +33,22 @@ namespace SQLite
 // Those public constants enable most usages of SQLiteCpp without including <sqlite3.h> in the client application.
 
 /// The database is opened in read-only mode. If the database does not already exist, an error is returned.
-extern const int OPEN_READONLY;     // SQLITE_OPEN_READONLY
+SQLITECPP_EXPORT_CPP const int OPEN_READONLY;     // SQLITE_OPEN_READONLY
 /// The database is opened for reading and writing if possible, or reading only if the file is write protected
 /// by the operating system. In either case the database must already exist, otherwise an error is returned.
-extern const int OPEN_READWRITE;    // SQLITE_OPEN_READWRITE
+SQLITECPP_EXPORT_CPP const int OPEN_READWRITE;    // SQLITE_OPEN_READWRITE
 /// With OPEN_READWRITE: The database is opened for reading and writing, and is created if it does not already exist.
-extern const int OPEN_CREATE;       // SQLITE_OPEN_CREATE
+SQLITECPP_EXPORT_CPP const int OPEN_CREATE;       // SQLITE_OPEN_CREATE
 /// Open database with thread-safety
-extern const int OPEN_FULLMUTEX;    // SQLITE_OPEN_FULLMUTEX
+SQLITECPP_EXPORT_CPP const int OPEN_FULLMUTEX;    // SQLITE_OPEN_FULLMUTEX
 
 /// Enable URI filename interpretation, parsed according to RFC 3986 (ex. "file:data.db?mode=ro&cache=private")
-extern const int OPEN_URI;          // SQLITE_OPEN_URI
+SQLITECPP_EXPORT_CPP const int OPEN_URI;          // SQLITE_OPEN_URI
 
-extern const int OK;                ///< SQLITE_OK (used by check() bellow)
+SQLITECPP_EXPORT_CPP const int OK;                ///< SQLITE_OK (used by check() bellow)
 
-extern const char*  VERSION;        ///< SQLITE_VERSION string from the sqlite3.h used at compile time
-extern const int    VERSION_NUMBER; ///< SQLITE_VERSION_NUMBER from the sqlite3.h used at compile time
+SQLITECPP_EXPORT_CPP const char*  VERSION;        ///< SQLITE_VERSION string from the sqlite3.h used at compile time
+SQLITECPP_EXPORT_CPP const int    VERSION_NUMBER; ///< SQLITE_VERSION_NUMBER from the sqlite3.h used at compile time
 
 /// Return SQLite version string using runtime call to the compiled library
 const char* getLibVersion() noexcept;
@@ -98,7 +99,7 @@ struct Header {
  *    because of the way it shares the underling SQLite precompiled statement
  *    in a custom shared pointer (See the inner class "Statement::Ptr").
  */
-class Database
+class SQLITECPP_LINKAGE Database
 {
     friend class Statement; // Give Statement constructor access to the mSQLitePtr Connection Handle
 
@@ -169,7 +170,7 @@ public:
     ~Database() = default;
 
     // Deleter functor to use with smart pointers to close the SQLite database connection in an RAII fashion.
-    struct Deleter
+    struct SQLITECPP_LINKAGE Deleter
     {
         void operator()(sqlite3* apSQLite);
     };
