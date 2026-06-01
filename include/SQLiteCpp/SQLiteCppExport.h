@@ -31,8 +31,3 @@
         #define SQLITECPP_API
     #endif
 #endif
-
-#if defined(WIN32) && defined(SQLITECPP_COMPILE_DLL)
-    #pragma warning( disable : 4251 )
-    #pragma warning( disable : 4275 )
-#endif
